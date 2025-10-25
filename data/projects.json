@@ -1,21 +1,18 @@
 [
   {
-    "title": "AI FinOps Cost Explorer (demo)",
-    "summary": "A dashboard and policy set to track and reduce LLM spend by 25\u201340% via prompt/ctx budgets, caching, and routing.",
+    "title": "Training Video to Multi-Format Learning Materials",
+    "summary": "Turn a recorded knowledge-transfer session into a training guide, quick-reference sheet, and onboarding checklist.",
     "tags": [
-      "LLMOps",
-      "FinOps",
-      "Azure/GCP/AWS"
+      "RAG",
+      "Knowledge Transfer"
     ],
     "link": "https://github.com/hpincham"
   },
   {
-    "title": "Legal Aid Data Maturity Assessment",
-    "summary": "Structured assessment & roadmap for nonprofit analytics and data governance; staged wins in 90/180 days.",
+    "title": "Photo Restoration and Enhancement (Fun Project using ChatGPT and Nano Banana)",
+    "summary": "Restore clarity, sharpen colors, preserve borders, and manage composition in an aged photos.",
     "tags": [
-      "Nonprofit",
-      "Data Strategy",
-      "Governance"
+      "Just for Fun"
     ],
     "link": "https://github.com/hpincham"
   },
