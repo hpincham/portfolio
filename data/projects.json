@@ -1,0 +1,32 @@
+[
+  {
+    "title": "AI FinOps Cost Explorer (demo)",
+    "summary": "A dashboard and policy set to track and reduce LLM spend by 25\u201340% via prompt/ctx budgets, caching, and routing.",
+    "tags": [
+      "LLMOps",
+      "FinOps",
+      "Azure/GCP/AWS"
+    ],
+    "link": "https://github.com/hpincham"
+  },
+  {
+    "title": "Legal Aid Data Maturity Assessment",
+    "summary": "Structured assessment & roadmap for nonprofit analytics and data governance; staged wins in 90/180 days.",
+    "tags": [
+      "Nonprofit",
+      "Data Strategy",
+      "Governance"
+    ],
+    "link": "https://github.com/hpincham"
+  },
+  {
+    "title": "RAG on Personal Knowledge (PoC)",
+    "summary": "Lightweight vector store + guardrails to safely query private notes, sermons, and slides.",
+    "tags": [
+      "RAG",
+      "Safety",
+      "Vector DB"
+    ],
+    "link": "https://github.com/hpincham"
+  }
+]
