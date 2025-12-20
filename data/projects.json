@@ -1,5 +1,18 @@
 [
   {
+    "title": "Enterprise AI Systems Architecture (Build 1)",
+    "summary": "A reference architecture for secure, governable, and cost-controlled enterprise AI using Azure OpenAI, Entra ID, managed identities, network controls, observability, and explicit cost guardrails.",
+    "tags": [
+      "Enterprise Architecture",
+      "AI Systems",
+      "Azure OpenAI",
+      "Security",
+      "Governance",
+      "Cost Control"
+    ],
+    "link": "https://clarusigna.com/assets/enterprise-ai-architecture-portfolio-summary.html"
+  },
+  {
     "title": "Training Video to Multi-Format Learning Materials",
     "summary": "Turn a recorded knowledge-transfer session into a training guide, quick-reference sheet, and onboarding checklist.",
     "tags": [
@@ -10,7 +23,7 @@
   },
   {
     "title": "Photo Restoration and Enhancement (Fun Project using ChatGPT and Nano Banana)",
-    "summary": "Restore clarity, sharpen colors, preserve borders, and manage composition in an aged photos.",
+    "summary": "Restore clarity, sharpen colors, preserve borders, and manage composition in aged photos.",
     "tags": [
       "Just for Fun"
     ],
@@ -18,7 +31,7 @@
   },
   {
     "title": "RAG on Personal Knowledge (PoC)",
-    "summary": "Lightweight vector store + guardrails to safely query private notes, sermons, and slides.",
+    "summary": "Lightweight vector store with guardrails to safely query private notes, sermons, and slides.",
     "tags": [
       "RAG",
       "Safety",
