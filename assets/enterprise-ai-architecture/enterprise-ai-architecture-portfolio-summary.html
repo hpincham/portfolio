@@ -102,12 +102,45 @@
       border-radius: 8px;
       margin: 12px 0 6px;
     }
+
+    .artifact-actions {
+      margin: 16px 0 24px 0;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 1px solid #444;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      color: #222;
+      background-color: #f8f8f8;
+    }
+    
+    .download-btn:hover {
+      background-color: #eeeeee;
+    }
+
+    
   </style>
 </head>
 <body>
   <main>
     <header>
       <h1>Enterprise AI Systems Architecture – Portfolio Summary</h1>
+
+      <div class="artifact-actions">
+        <a
+          href="/assets/Enterprise-AI-Architecture-Portfolio-Summary.pdf"
+          class="download-btn"
+          target="_blank"
+          rel="noopener"
+        >
+          Download PDF
+        </a>
+      </div>
+      
       <p class="sub"><strong>Howard Pincham</strong> · AI Systems Architect</p>
       <div class="meta">
         <span class="pill">Enterprise architecture</span>
@@ -212,10 +245,9 @@
         <li>ADR set (ADR-001 through ADR-005)</li>
         <li>Implementation notes and operational lessons learned</li>
       </ul>
-      <p class="muted">
-        If you publish this on your site, consider linking to a PDF version as the “downloadable” artifact and
-        keeping deeper artifacts (ADRs/diagram) as a secondary bundle.
-      </p>
+      <div class="footer-meta">
+        Version 1.0 · Architecture portfolio artifact
+      </div>
     </section>
 
     <footer>
