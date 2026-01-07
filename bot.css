@@ -7,6 +7,8 @@
   border: 1px solid rgba(0, 0, 0, .15);
   background: white;
   cursor: pointer;
+  .bot-btn { z-index: 9999; }
+  .bot-modal { z-index: 9998; }
 }
 
 .bot-modal {
