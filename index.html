@@ -15,9 +15,6 @@
   <meta name="twitter:description" content="Infra → AI. I build reliable systems and help teams use AI with judgment, clarity, and accountability. My work bridges cloud infrastructure, data governance, and practical AI adoption for real-world results." />
   <meta name="twitter:image" content="https://clarusigna.com/assets/social-preview.png" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="./bot.css">
-  <script defer src="./bot.js"></script>
-
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -46,23 +43,6 @@
         <a class="btn" href="#portfolio">View Work</a>
         <a class="btn secondary" href="assets/Howard-Pincham-Resume.pdf" target="_blank" rel="noopener">Resume</a>
         <a class="btn secondary" href="https://chatgpt.com/g/g-67f0e496f3e48191b23cd665abca9c6e-what-its-like-to-work-with-howard" target="_blank" rel="noopener">Bot</a>
-        <button id="botBtn" class="bot-btn">Bot</button>
-        
-        <div id="botModal" class="bot-modal" aria-hidden="true">
-          <div class="bot-panel">
-            <div class="bot-header">
-              <div class="bot-title">ClaruSigna Bot</div>
-              <button id="botClose" class="bot-close" aria-label="Close">✕</button>
-            </div>
-        
-            <div id="botMessages" class="bot-messages"></div>
-        
-            <form id="botForm" class="bot-form">
-              <input id="botInput" class="bot-input" placeholder="Ask me anything…" autocomplete="off" />
-              <button class="bot-send" type="submit">Send</button>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -114,25 +94,7 @@
       <a href="LICENSE.txt">CC BY 4.0</a>
     </div>
   </footer>
-<button id="botBtn" class="bot-btn">Bot</button>
-
-<div id="botModal" class="bot-modal" aria-hidden="true">
-  <div class="bot-panel">
-    <div class="bot-header">
-      <strong>ClaruSigna Bot</strong>
-      <button id="botClose">✕</button>
-    </div>
-
-    <div id="botMessages" class="bot-messages"></div>
-
-    <form id="botForm" class="bot-form">
-      <input id="botInput" class="bot-input" placeholder="Ask me anything…" />
-      <button type="submit">Send</button>
-    </form>
-  </div>
-</div>
 
   <script src="scripts.js"></script>
-
 </body>
 </html>
