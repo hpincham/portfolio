@@ -117,5 +117,23 @@
   </footer>
 
   <script src="scripts.js"></script>
+
+  <div id="botModal" class="bot-modal" aria-hidden="true">
+    <div class="bot-panel" role="dialog" aria-modal="true" aria-label="ClaruSigna Bot">
+      <div class="bot-header">
+        <div class="bot-title">ClaruSigna Bot</div>
+        <button id="botClose" class="btn secondary bot-close" type="button">Close</button>
+      </div>
+  
+      <div id="botMessages" class="bot-messages"></div>
+  
+      <form id="botForm" class="bot-form">
+        <input id="botInput" class="bot-input" placeholder="Ask me anything…" autocomplete="off" />
+        <button class="btn secondary" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  
 </body>
 </html>
