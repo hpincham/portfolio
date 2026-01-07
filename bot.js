@@ -1,22 +1,12 @@
-console.log("✅ bot.js loaded");
+console.log("✅ bot.js loaded (modal stage)");
 
 document.addEventListener("DOMContentLoaded", () => {
   const botBtn = document.getElementById("botBtn");
   const botModal = document.getElementById("botModal");
   const botClose = document.getElementById("botClose");
 
-  console.log("elements:", { botBtn, botModal, botClose });
-
-  if (!botBtn) {
-    console.error("Missing #botBtn");
-    return;
-  }
-
-  // If modal isn't present yet, don't crash — just prove click works.
-  if (!botModal || !botClose) {
-    botBtn.addEventListener("click", () => {
-      alert("Bot button works. Modal HTML not added yet.");
-    });
+  if (!botBtn || !botModal || !botClose) {
+    console.error("Missing bot elements:", { botBtn, botModal, botClose });
     return;
   }
 
@@ -32,4 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   botBtn.addEventListener("click", openBot);
   botClose.addEventListener("click", closeBot);
+  botModal.addEventListener("click", (e) => {
+    if (e.target === botModal) closeBot();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeBot();
+  });
 });
