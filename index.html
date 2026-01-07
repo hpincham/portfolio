@@ -43,7 +43,23 @@
       <div class="cta">
         <a class="btn" href="#portfolio">View Work</a>
         <a class="btn secondary" href="assets/Howard-Pincham-Resume.pdf" target="_blank" rel="noopener">Resume</a>
-        <a class="btn secondary" href="https://chatgpt.com/g/g-67f0e496f3e48191b23cd665abca9c6e-what-its-like-to-work-with-howard" target="_blank" rel="noopener">Bot</a>
+        <button id="botBtn" class="bot-btn">Bot</button>
+        
+        <div id="botModal" class="bot-modal" aria-hidden="true">
+          <div class="bot-panel">
+            <div class="bot-header">
+              <div class="bot-title">ClaruSigna Bot</div>
+              <button id="botClose" class="bot-close" aria-label="Close">✕</button>
+            </div>
+        
+            <div id="botMessages" class="bot-messages"></div>
+        
+            <form id="botForm" class="bot-form">
+              <input id="botInput" class="bot-input" placeholder="Ask me anything…" autocomplete="off" />
+              <button class="bot-send" type="submit">Send</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </section>
