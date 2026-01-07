@@ -1,7 +1,5 @@
-// Public URL of your Cloudflare Worker
 const WORKER_URL = "https://clarusigna-bot-worker.hapincham.workers.dev";
 
-// Grab DOM elements
 const botBtn = document.getElementById("botBtn");
 const botModal = document.getElementById("botModal");
 const botClose = document.getElementById("botClose");
@@ -11,19 +9,6 @@ const botInput = document.getElementById("botInput");
 
 const messages = [];
 
-// Open / close modal
-botBtn.addEventListener("click", () => {
-  botModal.classList.add("open");
-  botModal.setAttribute("aria-hidden", "false");
-  botInput.focus();
-});
-
-botClose.addEventListener("click", () => {
-  botModal.classList.remove("open");
-  botModal.setAttribute("aria-hidden", "true");
-});
-
-// Render message
 function addMessage(role, text) {
   const div = document.createElement("div");
   div.className = `msg ${role}`;
@@ -32,8 +17,29 @@ function addMessage(role, text) {
   botMessages.scrollTop = botMessages.scrollHeight;
 }
 
-// Send message
-async function sendToBot(text) {
+function openBot() {
+  botModal.classList.add("open");
+  botModal.setAttribute("aria-hidden", "false");
+  botInput.focus();
+}
+
+function closeBot() {
+  botModal.classList.remove("open");
+  botModal.setAttribute("aria-hidden", "true");
+}
+
+botBtn.addEventListener("click", openBot);
+botClose.addEventListener("click", closeBot);
+botModal.addEventListener("click", (e) => {
+  if (e.target === botModal) closeBot();
+});
+
+botForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const text = botInput.value.trim();
+  if (!text) return;
+
+  botInput.value = "";
   messages.push({ role: "user", content: text });
   addMessage("user", text);
 
@@ -41,31 +47,27 @@ async function sendToBot(text) {
   typing.className = "msg assistant";
   typing.textContent = "…";
   botMessages.appendChild(typing);
+  botMessages.scrollTop = botMessages.scrollHeight;
 
-  const res = await fetch(WORKER_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      messages,
-      systemPrompt:
-        "You are the ClaruSigna assistant. Be concise, thoughtful, and practical."
-    })
-  });
+  try {
+    const res = await fetch(WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        systemPrompt:
+          "You are the ClaruSigna website assistant. Help visitors understand Howard Pincham’s work, projects, and services. Be concise, practical, and friendly. Ask one clarifying question when needed.",
+        messages,
+      }),
+    });
 
-  const data = await res.json();
-  typing.remove();
+    const data = await res.json();
+    typing.remove();
 
-  messages.push({ role: "assistant", content: data.text });
-  addMessage("assistant", data.text);
-}
-
-// Form submit
-botForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const text = botInput.value.trim();
-  if (!text) return;
-  botInput.value = "";
-  sendToBot(text).catch(() =>
-    addMessage("assistant", "Something went wrong.")
-  );
+    const reply = data.text || "(No response)";
+    messages.push({ role: "assistant", content: reply });
+    addMessage("assistant", reply);
+  } catch {
+    typing.remove();
+    addMessage("assistant", "Sorry—something went sideways.");
+  }
 });
