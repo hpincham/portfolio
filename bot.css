@@ -1,74 +1,92 @@
 .bot-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  right: 18px;
+  bottom: 18px;
   padding: 10px 14px;
   border-radius: 999px;
-  background: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .15);
+  background: white;
   cursor: pointer;
 }
 
 .bot-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.35);
+  background: rgba(0, 0, 0, .35);
   display: none;
 }
 
-.bot-modal.open {
-  display: block;
-}
+.bot-modal.open { display: block; }
 
 .bot-panel {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 380px;
-  height: 520px;
-  background: #fff;
+  right: 18px;
+  bottom: 70px;
+  width: min(420px, calc(100vw - 36px));
+  height: min(620px, calc(100vh - 110px));
+  background: white;
   border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.12);
+  box-shadow: 0 18px 60px rgba(0,0,0,.25);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
 .bot-header {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  padding: 12px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.bot-close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 .bot-messages {
+  padding: 12px;
+  overflow: auto;
   flex: 1;
-  padding: 10px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .msg {
-  margin-bottom: 8px;
-  padding: 8px 10px;
-  border-radius: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  max-width: 90%;
+  white-space: pre-wrap;
+  line-height: 1.35;
+  border: 1px solid rgba(0,0,0,.08);
 }
 
-.msg.user {
-  background: #eef;
-  align-self: flex-end;
-}
-
-.msg.assistant {
-  background: #f5f5f5;
-}
+.msg.user { align-self: flex-end; }
+.msg.assistant { align-self: flex-start; }
 
 .bot-form {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   padding: 10px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid rgba(0,0,0,.08);
 }
 
 .bot-input {
   flex: 1;
-  padding: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.15);
+}
+
+.bot-send {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.15);
+  background: white;
+  cursor: pointer;
 }
