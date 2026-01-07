@@ -1,3 +1,15 @@
+console.log("bot.js loaded");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const botBtn = document.getElementById("botBtn");
+  console.log("DOMContentLoaded. botBtn =", botBtn);
+
+  if (!botBtn) {
+    console.error("botBtn not found. Check the markup/IDs.");
+    return;
+  }
+});
+
 const WORKER_URL = "https://clarusigna-bot-worker.hapincham.workers.dev";
 
 const botBtn = document.getElementById("botBtn");
