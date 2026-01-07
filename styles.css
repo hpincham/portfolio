@@ -112,3 +112,30 @@ main { padding: 28px 0 56px; }
 }
 
 .bot-input::placeholder { color: var(--muted); }
+
+
+
+/* --- Bot chat bubbles --- */
+.bot-bubble {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #222837;
+  background: #0f1217;
+  color: var(--ink);
+  max-width: 90%;
+  white-space: pre-wrap;
+  margin: 0 0 10px 0;
+}
+
+.bot-bubble.user {
+  margin-left: auto;
+  border-color: #2b3a50;
+  background: color-mix(in oklab, var(--brand), #0f1217 78%);
+  color: #061017;
+}
+
+.bot-bubble.assistant {
+  margin-right: auto;
+  background: #0f1217;
+}
+
