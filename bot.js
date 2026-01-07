@@ -40,7 +40,10 @@ function closeBot() {
   botModal.setAttribute("aria-hidden", "true");
 }
 
-botBtn.addEventListener("click", openBot);
+botBtn.addEventListener("click", () => {
+  console.log("Bot button clicked");
+  openBot();
+});
 botClose.addEventListener("click", closeBot);
 botModal.addEventListener("click", (e) => {
   if (e.target === botModal) closeBot();
