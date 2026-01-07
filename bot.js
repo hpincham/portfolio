@@ -1,4 +1,6 @@
 console.log("✅ bot.js loaded (chat stage)");
+console.log("🔥 bot.js CHAT STAGE v1 loaded");
+
 
 const WORKER_URL = "https://clarusigna-bot-worker.hapincham.workers.dev";
 
