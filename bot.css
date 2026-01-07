@@ -1,0 +1,74 @@
+.bot-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.bot-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  display: none;
+}
+
+.bot-modal.open {
+  display: block;
+}
+
+.bot-panel {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 380px;
+  height: 520px;
+  background: #fff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.bot-header {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.msg {
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.msg.user {
+  background: #eef;
+  align-self: flex-end;
+}
+
+.msg.assistant {
+  background: #f5f5f5;
+}
+
+.bot-form {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.bot-input {
+  flex: 1;
+  padding: 8px;
+}
