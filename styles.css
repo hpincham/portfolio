@@ -25,10 +25,21 @@ nav a:hover { opacity: 1; }
 .hero { padding: 56px 0 28px; border-bottom: 1px solid #1a1d24; background: radial-gradient(1200px 400px at 50% -50px, color-mix(in oklab, var(--brand), transparent 80%), transparent 70%); }
 .hero h1 { font-size: clamp(28px, 6vw, 48px); margin: 0 0 6px 0; }
 .tagline { color: var(--muted); margin: 0 0 16px 0; }
-.cta { display:flex; gap:12px; }
+.cta { display:flex; gap:12px; flex-wrap: wrap; }
 .btn { display:inline-block; padding: 10px 16px; border-radius: 12px; background: var(--brand); color:#061017; font-weight:700; box-shadow: 0 0 0 0 var(--ring); transition: box-shadow .2s ease, transform .06s ease; }
 .btn:hover { text-decoration:none; box-shadow: 0 0 0 6px var(--ring); transform: translateY(-1px); }
 .btn.secondary { background: #1b2635; color: var(--ink); border: 1px solid #2b3a50; }
+
+/* Normalize <button class="btn"> to match <a class="btn"> */
+button.btn {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+}
+button.btn:focus-visible {
+  box-shadow: 0 0 0 6px var(--ring);
+}
 
 main { padding: 28px 0 56px; }
 .card { background: var(--panel); border: 1px solid #1a1d24; border-radius: 16px; padding: 20px; margin: 18px 0; }
@@ -139,8 +150,14 @@ main { padding: 28px 0 56px; }
   background: #0f1217;
 }
 
+
 /* --- Bot modal: mobile responsiveness --- */
 @media (max-width: 600px) {
+
+  /* General mobile spacing */
+  .container { padding: 0 16px; }         /* a little more breathing room */
+  .hero { padding: 44px 0 22px; }         /* slightly tighter */
+
   /* Full-screen sheet on phones */
   .bot-panel {
     right: 0;
@@ -153,10 +170,17 @@ main { padding: 28px 0 56px; }
     border-left: 0;
     border-right: 0;
     border-bottom: 0;
+
+    /* iPhone safe areas (home indicator) */
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
-  /* Keep header + input comfy */
-  .bot-header { padding: 14px; }
+  /* iPhone safe areas (notch) */
+  .bot-header {
+    padding: 14px;
+    padding-top: calc(14px + env(safe-area-inset-top));
+  }
+
   .bot-messages { padding: 14px; }
 
   .bot-form {
@@ -165,9 +189,7 @@ main { padding: 28px 0 56px; }
   }
 
   /* Prevent iOS zoom on focus */
-  .bot-input {
-    font-size: 16px;
-  }
+  .bot-input { font-size: 16px; }
 
   /* Make buttons easier to tap */
   .bot-form .btn,
