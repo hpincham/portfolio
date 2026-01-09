@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "- Do NOT invent projects, clients, credentials, or services.\n" +
             "- If a question cannot be answered directly from the provided documents, respond clearly:" +
             "- The provided information does not contain an answer to that question.\n" +
-            "- Your purpose is accuracy and clarity, not completeness.\n\n",
+            "- Your purpose is accuracy and clarity, not completeness.\n\n" +
             "STYLE:\n" +
             "- Concise, thoughtful, practical\n" +
             "- Confident but not salesy\n" +
