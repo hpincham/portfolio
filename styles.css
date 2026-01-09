@@ -139,3 +139,39 @@ main { padding: 28px 0 56px; }
   background: #0f1217;
 }
 
+/* --- Bot modal: mobile responsiveness --- */
+@media (max-width: 600px) {
+  /* Full-screen sheet on phones */
+  .bot-panel {
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  /* Keep header + input comfy */
+  .bot-header { padding: 14px; }
+  .bot-messages { padding: 14px; }
+
+  .bot-form {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  /* Prevent iOS zoom on focus */
+  .bot-input {
+    font-size: 16px;
+  }
+
+  /* Make buttons easier to tap */
+  .bot-form .btn,
+  .bot-close {
+    padding: 12px 14px;
+  }
+}
