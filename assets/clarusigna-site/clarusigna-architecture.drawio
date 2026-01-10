@@ -4,6 +4,18 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="Li2DP6LqIhPa65UW1jN8-4" edge="1" parent="1" source="Li2DP6LqIhPa65UW1jN8-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Li2DP6LqIhPa65UW1jN8-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Li2DP6LqIhPa65UW1jN8-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" value="index.html (web) displays static content in /assets" vertex="1">
+          <mxGeometry height="80" width="110" x="278" y="178" as="geometry" />
+        </mxCell>
+        <mxCell id="botjs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" value="bot.js (Front-End)&#xa;Builds request payload&#xa;POSTs to Worker" vertex="1">
+          <mxGeometry height="80" width="135" x="393" y="177" as="geometry" />
+        </mxCell>
+        <mxCell id="workerdesc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=12;" value="Validates request (CORS, POST)&lt;br&gt;Extracts latest user query&lt;br&gt;Calls AI Search (AutoRAG)&lt;br&gt;Returns JSON {text}&amp;nbsp;" vertex="1">
+          <mxGeometry height="110" width="160" x="810" y="253" as="geometry" />
+        </mxCell>
         <mxCell id="title1" parent="1" style="text;html=1;fontSize=18;fontStyle=1;" value="ClaruSigna Bot – Architecture Overview" vertex="1">
           <mxGeometry height="30" width="900" x="20" y="20" as="geometry" />
         </mxCell>
@@ -13,20 +25,11 @@
         <mxCell id="site" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="clarusigna.com&#xa;GitHub Pages (Static Site)" vertex="1">
           <mxGeometry height="90" width="280" x="260" y="100" as="geometry" />
         </mxCell>
-        <mxCell id="botjs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" value="bot.js (Front-End)&#xa;Builds request payload&#xa;POSTs to Worker" vertex="1">
-          <mxGeometry height="80" width="230" x="285" y="210" as="geometry" />
-        </mxCell>
         <mxCell id="worker" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" value="Cloudflare Worker&#xa;clarusigna-bot-worker (workers.dev)" vertex="1">
-          <mxGeometry height="100" width="380" x="600" y="100" as="geometry" />
-        </mxCell>
-        <mxCell id="workerdesc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=12;" value="Validates request (CORS, POST)&#xa;Extracts latest user query&#xa;Calls AI Search (AutoRAG)&#xa;Returns JSON {text} (debug adds result metadata)" vertex="1">
-          <mxGeometry height="110" width="330" x="625" y="220" as="geometry" />
+          <mxGeometry height="100" width="380" x="610" y="167" as="geometry" />
         </mxCell>
         <mxCell id="aisearch" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="Cloudflare AI Search (AutoRAG)&#xa;Instance: clarus-search" vertex="1">
-          <mxGeometry height="80" width="380" x="600" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="r2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Cloudflare R2 Bucket&#xa;Knowledge base (MD &amp; PDFs)&#xa;Keys like clarusigna/ABOUT.md" vertex="1">
-          <mxGeometry height="100" width="280" x="260" y="400" as="geometry" />
+          <mxGeometry height="80" width="150" x="814" y="407" as="geometry" />
         </mxCell>
         <mxCell id="edge1" edge="1" parent="1" source="user" style="endArrow=block;html=1;" target="site">
           <mxGeometry relative="1" as="geometry" />
@@ -34,11 +37,19 @@
         <mxCell id="edge2" edge="1" parent="1" source="botjs" style="endArrow=block;html=1;" target="worker">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="edge3" edge="1" parent="1" source="worker" style="endArrow=block;html=1;" target="aisearch">
+        <mxCell id="edge3" edge="1" parent="1" source="workerdesc" style="endArrow=block;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="aisearch">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="357" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="aisearch" style="endArrow=block;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="Li2DP6LqIhPa65UW1jN8-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="edge4" edge="1" parent="1" source="aisearch" style="endArrow=block;html=1;" target="r2">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="Li2DP6LqIhPa65UW1jN8-1" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="Cloudflare R2 Bucket&lt;br&gt;Knowledge base&lt;br&gt;&amp;nbsp;(MD &amp;amp; PDFs)" vertex="1">
+          <mxGeometry height="130" width="110" x="834" y="547" as="geometry" />
+        </mxCell>
+        <mxCell id="Li2DP6LqIhPa65UW1jN8-2" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="GitHub Pages File Storage" vertex="1">
+          <mxGeometry height="90" width="80" x="293" y="290" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
