@@ -4,6 +4,13 @@ console.log("🔥 bot.js CHAT STAGE v1 loaded");
 
 const WORKER_URL = "https://clarusigna-bot-worker.hapincham.workers.dev";
 
+if (request.method === "GET") {
+  return new Response("ClaruSigna bot worker is running.", {
+    status: 200,
+    headers: corsHeaders(allowedOrigin),
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const botBtn = document.getElementById("botBtn");
   const botModal = document.getElementById("botModal");
@@ -64,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       messages,
-      // debug: true, // enable temporarily to see raw result shape
+       debug: true, // enable temporarily to see raw result shape
     }),
   });
 
