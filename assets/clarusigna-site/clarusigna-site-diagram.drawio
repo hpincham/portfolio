@@ -1,0 +1,59 @@
+<mxfile host="app.diagrams.net" modified="2026-01-10T20:40:00.000Z" agent="draw.io" version="24.7.17" type="device">
+  <diagram id="arch" name="Architecture - Components & Locations">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title1" value="ClaruSigna Bot – Architecture Overview" style="text;html=1;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="800" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="user" value="End User (Browser)" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="site" value="clarsusigna.com&#10;GitHub Pages (Static Site)" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="260" y="100" width="260" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="botjs" value="bot.js (Front-End)&#10;Builds request payload&#10;POSTs to Worker" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="280" y="210" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="worker" value="Cloudflare Worker&#10;clarusigna-bot-worker (workers.dev)" style="rounded=1;whiteSpace=wrap;fillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="600" y="100" width="360" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="workerdesc" value="Validates request&#10;Extracts user query&#10;Calls AI Search&#10;Returns response JSON" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="620" y="220" width="320" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="aisearch" value="Cloudflare AI Search (AutoRAG)&#10;Instance: clarus-search" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="600" y="380" width="360" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r2" value="Cloudflare R2 Bucket&#10;Markdown and PDF Knowledge Base" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="260" y="400" width="260" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge1" edge="1" parent="1" source="user" target="site" style="endArrow=block;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge2" edge="1" parent="1" source="botjs" target="worker" style="endArrow=block;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge3" edge="1" parent="1" source="worker" target="aisearch" style="endArrow=block;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge4" edge="1" parent="1" source="aisearch" target="r2" style="endArrow=block;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
