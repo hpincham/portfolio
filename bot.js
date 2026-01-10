@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Optional: greet once per page load
     if (botMessages.childElementCount === 0) {
       addBubble("assistant",
-        "Hi — I’m the ClaruSigna Bot. Ask me about Howard’s work, projects, or how he can help."
+        "Hi — I’m Clarus. Ask me about Clarusigna, or Howard’s work."
       );
     }
   }
@@ -59,26 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
     messages.push({ role: "user", content: userText });
     if (messages.length > 20) messages.splice(0, messages.length - 20);
 
-    const res = await fetch(WORKER_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-          systemPrompt:
-            "You are Clarus, the ClaruSigna assistant.\n\n" +
-            "CRITICAL RULES:\n" +
-            "- Your role is to answer questions using ONLY the documents and information provided about Howard Pincham and ClaruSigna.\n" +
-            "- If you do not know something, say so plainly and ask a clarifying question.\n" +
-            "- Do NOT invent projects, clients, credentials, or services.\n" +
-            "- If a question cannot be answered directly from the provided documents, respond clearly:" +
-            "- The provided information does not contain an answer to that question.\n" +
-            "- Your purpose is accuracy and clarity, not completeness.\n\n" +
-            "STYLE:\n" +
-            "- Concise, thoughtful, practical\n" +
-            "- Confident but not salesy\n" +
-            "- Helpful to technically literate visitors\n",
-        messages
-      }),
-    });
+  const res = await fetch(WORKER_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      messages,
+      // debug: true, // enable temporarily to see raw result shape
+    }),
+  });
+
 
     // If CORS/origin blocks, you’ll see it here
     if (!res.ok) {
