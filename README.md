@@ -68,6 +68,17 @@ It does **not** contain:
 
 ---
 
+## Why This Architecture
+
+This system favors clarity over complexity. Each responsibility is isolated so that:
+- failures are easy to diagnose
+- changes are low-risk
+- behavior remains predictable
+
+This reflects how Howard approaches real-world systems: start simple, establish trust boundaries, and evolve deliberately.
+
+---
+
 ## Status
 
 **Production in use**  
