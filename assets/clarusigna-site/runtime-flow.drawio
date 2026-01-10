@@ -1,135 +1,66 @@
-<mxfile host="app.diagrams.net" modified="2026-01-10T21:05:00.000Z" agent="draw.io" version="24.7.17" type="device">
-  <diagram id="arch" name="Architecture - Components &amp; Locations">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-
-        <mxCell id="title1" value="ClaruSigna Bot – Architecture Overview" style="text;html=1;fontSize=18;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="20" y="20" width="900" height="30" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="user" value="End User (Browser)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="40" y="120" width="170" height="60" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="site" value="clarusigna.com&#10;GitHub Pages (Static Site)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="260" y="100" width="280" height="90" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="botjs" value="bot.js (Front-End)&#10;Builds request payload&#10;POSTs to Worker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="285" y="210" width="230" height="80" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="worker" value="Cloudflare Worker&#10;clarusigna-bot-worker (workers.dev)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="600" y="100" width="380" height="100" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="workerdesc" value="Validates request (CORS, POST)&#10;Extracts latest user query&#10;Calls AI Search (AutoRAG)&#10;Returns JSON {text} (debug adds result metadata)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="625" y="220" width="330" height="110" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="aisearch" value="Cloudflare AI Search (AutoRAG)&#10;Instance: clarus-search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="600" y="380" width="380" height="80" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="r2" value="Cloudflare R2 Bucket&#10;Knowledge base (MD &amp; PDFs)&#10;Keys like clarusigna/ABOUT.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="260" y="400" width="280" height="100" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="edge1" edge="1" parent="1" source="user" target="site" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        <mxCell id="edge2" edge="1" parent="1" source="botjs" target="worker" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        <mxCell id="edge3" edge="1" parent="1" source="worker" target="aisearch" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        <mxCell id="edge4" edge="1" parent="1" source="aisearch" target="r2" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-      </root>
-    </mxGraphModel>
-  </diagram>
-
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.3.0">
   <diagram id="flow" name="Runtime Flow - Request, Retrieval, Response">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
+    <mxGraphModel dx="1065" dy="1070" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-
-        <mxCell id="title2" value="Runtime Flow (User question → Worker → AI Search → Answer)" style="text;html=1;fontSize=18;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="20" y="20" width="900" height="30" as="geometry"/>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title2" parent="1" style="text;html=1;fontSize=18;fontStyle=1;" value="Runtime Flow (User question → Worker → AI Search → Answer)" vertex="1">
+          <mxGeometry height="30" width="900" x="20" y="20" as="geometry" />
         </mxCell>
-
-        <mxCell id="b1" value="Browser (clarusigna.com)&#10;bot.js UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="40" y="90" width="260" height="70" as="geometry"/>
+        <mxCell id="b1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" value="Browser (clarusigna.com)&#xa;bot.js UI" vertex="1">
+          <mxGeometry height="70" width="260" x="40" y="90" as="geometry" />
         </mxCell>
-
-        <mxCell id="w1" value="Worker (workers.dev)&#10;CORS + query extraction" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="390" y="90" width="300" height="70" as="geometry"/>
+        <mxCell id="w1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12;" value="Worker (workers.dev)&#xa;CORS + query extraction" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="90" as="geometry" />
         </mxCell>
-
-        <mxCell id="a1" value="AI Search (clarus-search)&#10;Retrieval + synthesis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="760" y="90" width="300" height="70" as="geometry"/>
+        <mxCell id="a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;" value="AI Search (clarus-search)&#xa;Retrieval + synthesis" vertex="1">
+          <mxGeometry height="70" width="300" x="760" y="90" as="geometry" />
         </mxCell>
-
-        <mxCell id="step1" value="1) User asks question" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="40" y="200" width="260" height="50" as="geometry"/>
+        <mxCell id="step1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" value="1) User asks question" vertex="1">
+          <mxGeometry height="50" width="260" x="40" y="200" as="geometry" />
         </mxCell>
-
-        <mxCell id="step2" value="2) bot.js POSTs {messages, debug?}" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="40" y="270" width="260" height="50" as="geometry"/>
+        <mxCell id="step2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" value="2) bot.js POSTs {messages, debug?}" vertex="1">
+          <mxGeometry height="50" width="260" x="40" y="270" as="geometry" />
         </mxCell>
-
-        <mxCell id="step3" value="3) Worker validates and extracts latest user query" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="390" y="235" width="300" height="70" as="geometry"/>
+        <mxCell id="step3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" value="3) Worker validates and extracts latest user query" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="235" as="geometry" />
         </mxCell>
-
-        <mxCell id="step4" value="4) Worker calls aiSearch(query, system_prompt, ...)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="390" y="325" width="300" height="60" as="geometry"/>
+        <mxCell id="step4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" value="4) Worker calls aiSearch(query, system_prompt, ...)" vertex="1">
+          <mxGeometry height="60" width="300" x="390" y="325" as="geometry" />
         </mxCell>
-
-        <mxCell id="step5" value="5) AI Search retrieves top matches from indexed R2 objects" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="760" y="230" width="300" height="70" as="geometry"/>
+        <mxCell id="step5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" value="5) AI Search retrieves top matches from indexed R2 objects" vertex="1">
+          <mxGeometry height="70" width="300" x="760" y="230" as="geometry" />
         </mxCell>
-
-        <mxCell id="step6" value="6) AI Search synthesizes grounded response + metadata" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="760" y="320" width="300" height="70" as="geometry"/>
+        <mxCell id="step6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" value="6) AI Search synthesizes grounded response + metadata" vertex="1">
+          <mxGeometry height="70" width="300" x="760" y="320" as="geometry" />
         </mxCell>
-
-        <mxCell id="step7" value="7) Worker returns JSON {text} (debug adds redacted result)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="390" y="430" width="300" height="70" as="geometry"/>
+        <mxCell id="step7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" value="7) Worker returns JSON {text} (debug adds redacted result)" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="430" as="geometry" />
         </mxCell>
-
-        <mxCell id="step8" value="8) bot.js renders assistant text (no sources shown to users)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="40" y="430" width="260" height="70" as="geometry"/>
+        <mxCell id="step8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" value="8) bot.js renders assistant text (no sources shown to users)" vertex="1">
+          <mxGeometry height="70" width="260" x="40" y="430" as="geometry" />
         </mxCell>
-
-        <mxCell id="fedge1" edge="1" parent="1" source="step1" target="step2" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="fedge1" edge="1" parent="1" source="step1" style="endArrow=block;html=1;" target="step2">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="fedge2" edge="1" parent="1" source="step2" target="step3" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="fedge2" edge="1" parent="1" source="step2" style="endArrow=block;html=1;" target="step3">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="fedge3" edge="1" parent="1" source="step3" target="step4" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="fedge3" edge="1" parent="1" source="step3" style="endArrow=block;html=1;" target="step4">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="fedge4" edge="1" parent="1" source="step4" target="step5" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="fedge4" edge="1" parent="1" source="step4" style="endArrow=block;html=1;" target="step5">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="fedge5" edge="1" parent="1" source="step5" target="step6" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="fedge5" edge="1" parent="1" source="step5" style="endArrow=block;html=1;" target="step6">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="fedge6" edge="1" parent="1" source="step6" target="step7" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="fedge6" edge="1" parent="1" source="step6" style="endArrow=block;html=1;" target="step7">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="fedge7" edge="1" parent="1" source="step7" target="step8" style="endArrow=block;html=1;">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="fedge7" edge="1" parent="1" source="step7" style="endArrow=block;html=1;" target="step8">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
       </root>
     </mxGraphModel>
   </diagram>
