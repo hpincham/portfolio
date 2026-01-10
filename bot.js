@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const data = await res.json();
+    console.log("DEBUG response:", data);
     return (data.text || "").trim();
   }
 
