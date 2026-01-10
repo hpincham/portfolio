@@ -1,15 +1,7 @@
 console.log("✅ bot.js loaded (chat stage)");
 console.log("🔥 bot.js CHAT STAGE v1 loaded");
 
-
 const WORKER_URL = "https://clarusigna-bot-worker.hapincham.workers.dev";
-
-if (request.method === "GET") {
-  return new Response("ClaruSigna bot worker is running.", {
-    status: 200,
-    headers: corsHeaders(allowedOrigin),
-  });
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   const botBtn = document.getElementById("botBtn");
