@@ -1,48 +1,74 @@
-# Howard Portfolio Starter (Static, GitHub Pages Ready)
+# ClaruSigna Conversational System
 
-This is a zero-build static site you can edit in minutes and publish on **GitHub Pages**.  
-No Node, no frameworks—just HTML/CSS/JS + JSON content files.
+This repository contains the backend implementation of the **ClaruSigna conversational assistant**, a production-ready AI system designed to help others understand the professional work, technical depth, and implementation mindset of Howard Pincham.
 
-## ✅ What’s inside
-- `index.html` — single-page layout with About, Portfolio, Writing, Speaking, Contact
-- `styles.css` — modern, accessible, dark theme
-- `scripts.js` — renders content from `/data/*.json`
-- `/data/projects.json` — your portfolio cards
-- `/data/writing.json` — articles/posts (link out to Substack/Notion/blog)
-- `/data/speaking.json` — talks and workshops
-- `/assets` — drop in `Howard-Pincham-Resume.pdf` and any images
-- `LICENSE.txt` — CC BY 4.0 (edit as desired)
+The system is intentionally minimal, grounded, and transparent in operation, prioritizing accuracy and clarity over breadth or speculation.
 
-## ✏️ Edit your content
-Update the JSON files in `/data`:
-```json
-[
-  {
-    "title": "Project title",
-    "summary": "What you did and why it mattered.",
-    "tags": ["LLMOps", "FinOps"],
-    "link": "https://your-link"
-  }
-]
-```
+---
 
-## 🚀 Deploy to GitHub Pages (one-time)
-1. Create a new public repo on GitHub (e.g., `howard-portfolio`).
-2. Upload the contents of `/site` to the repo root.
-3. In the repo: **Settings → Pages → Build and deployment → Source = Deploy from a branch**.  
-   - Branch: `main` (or `master`)  
-   - Folder: `/ (root)`
-4. Save. Your site will publish at `https://<your-username>.github.io/<repo>/`.
-5. Optional: set a custom domain (e.g., `howardpincham.com`) in **Settings → Pages**.
+## What This System Does
 
-## 🧰 Daily edits
-- Add new projects/posts by updating `/data/*.json` (GitHub web editor works fine).
-- Replace the placeholder links, update About, and drop your resume into `/assets/Howard-Pincham-Resume.pdf`.
+- Provides a chat-based interface for exploring ClaruSigna and Howard Pincham’s work
+- Grounds responses using curated Markdown and PDF documents
+- Prevents hallucination by restricting answers to indexed content only
+- Separates public-facing UI from backend AI orchestration
+- Supports a safe, developer-only debug mode for observability
 
-## 🧱 Alternatives (when you’re ready)
-- **Astro/Content Collections** for Markdown posts + fast static builds
-- **Next.js on Vercel** for dynamic features, auth, and API routes
-- **MkDocs or Docusaurus** if you prefer docs-style navigation
+This is **not** a generic chatbot or a resume replacement. It is a focused companion that reveals how Howard thinks, builds, and applies technology.
 
-## 📄 License
-Default is CC BY 4.0. Change `LICENSE.txt` if you prefer a different license.
+---
+
+## High-Level Architecture
+
+The system consists of four main layers:
+
+1. **Static Website (GitHub Pages)**
+   - Hosts the UI and chat interface
+   - Collects user input and sends requests to the backend
+
+2. **Cloudflare Worker (this repo)**
+   - Acts as a secure API boundary
+   - Enforces CORS and request validation
+   - Applies system prompts and guardrails
+   - Calls Cloudflare AI Search
+
+3. **Cloudflare AI Search (AutoRAG)**
+   - Performs vector search and response synthesis
+   - Grounds answers using indexed documents only
+
+4. **Cloudflare R2**
+   - Stores the authoritative Markdown and PDF knowledge base
+
+Two diagrams in `/docs/diagrams` illustrate:
+- Component locations and boundaries
+- Runtime request and retrieval flow
+
+---
+
+## Design Principles
+
+- **Grounded by default** – No document, no answer
+- **Minimal surface area** – Few moving parts, clear boundaries
+- **Separation of concerns** – UI, backend, retrieval, and storage are decoupled
+- **Operational clarity** – Easy to understand, debug, and maintain
+
+---
+
+## What This Repo Contains
+
+- Cloudflare Worker source code
+- Wrangler configuration
+- System prompt and guardrails
+- Internal documentation and diagrams
+
+It does **not** contain:
+- Front-end site code
+- Knowledge documents themselves
+- Secrets or API keys
+
+---
+
+## Status
+
+**Production in use**  
+Stable and actively serving traffic via `clarusigna.com`
