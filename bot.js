@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       messages,
-       debug: true, // enable temporarily to see raw result shape
+      // debug: true, // enable temporarily to see raw result shape
     }),
   });
 
